@@ -1,15 +1,15 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\obaads\\Documents\\Intervjuer ect\\Presentasjoner\\Wolftech\\Wolftech_departments\\Wolftech_departments\\Wolftech_departments.csproj": {}
+    "C:\\Users\\obaads\\Documents\\Intervjuer ect\\Presentasjoner\\Wolftech\\Wolftech_departments\\Wolftech_departments\\WolftechApi.csproj": {}
   },
   "projects": {
-    "C:\\Users\\obaads\\Documents\\Intervjuer ect\\Presentasjoner\\Wolftech\\Wolftech_departments\\Wolftech_departments\\Wolftech_departments.csproj": {
+    "C:\\Users\\obaads\\Documents\\Intervjuer ect\\Presentasjoner\\Wolftech\\Wolftech_departments\\Wolftech_departments\\WolftechApi.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\obaads\\Documents\\Intervjuer ect\\Presentasjoner\\Wolftech\\Wolftech_departments\\Wolftech_departments\\Wolftech_departments.csproj",
-        "projectName": "Wolftech_departments",
-        "projectPath": "C:\\Users\\obaads\\Documents\\Intervjuer ect\\Presentasjoner\\Wolftech\\Wolftech_departments\\Wolftech_departments\\Wolftech_departments.csproj",
+        "projectUniqueName": "C:\\Users\\obaads\\Documents\\Intervjuer ect\\Presentasjoner\\Wolftech\\Wolftech_departments\\Wolftech_departments\\WolftechApi.csproj",
+        "projectName": "WolftechApi",
+        "projectPath": "C:\\Users\\obaads\\Documents\\Intervjuer ect\\Presentasjoner\\Wolftech\\Wolftech_departments\\Wolftech_departments\\WolftechApi.csproj",
         "packagesPath": "C:\\Users\\obaads\\.nuget\\packages\\",
         "outputPath": "C:\\Users\\obaads\\Documents\\Intervjuer ect\\Presentasjoner\\Wolftech\\Wolftech_departments\\Wolftech_departments\\obj\\",
         "projectStyle": "PackageReference",
