@@ -22,7 +22,7 @@
   },
   "targets": {
     ".NETCoreApp,Version=v3.1": {
-      "Wolftech_departments/1.0.0": {
+      "WolftechApi/1.0.0": {
         "dependencies": {
           "CsvHelper": "15.0.5",
           "Microsoft.VisualStudio.Web.CodeGeneration.Design": "3.1.1",
@@ -301,10 +301,10 @@
           "WindowsBase": "4.0.0.0"
         },
         "runtime": {
-          "Wolftech_departments.dll": {}
+          "WolftechApi.dll": {}
         },
         "compile": {
-          "Wolftech_departments.dll": {}
+          "WolftechApi.dll": {}
         }
       },
       "CsvHelper/15.0.5": {
@@ -3183,7 +3183,7 @@
     }
   },
   "libraries": {
-    "Wolftech_departments/1.0.0": {
+    "WolftechApi/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
