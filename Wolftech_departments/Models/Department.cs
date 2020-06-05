@@ -30,5 +30,16 @@ namespace WolftechApi.Models
 
         }
 
+        /**
+         * The following constructor is intdended for testing only
+         */
+        public Department(int oid, string title, string color, int numDec) 
+        {
+            Oid = oid;
+            Title = title;
+            Color = color;
+            Departments = new List<Department> ();
+            NumDecendants = numDec;
+        }
     }
 }

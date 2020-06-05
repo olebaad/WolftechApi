@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "ddrBwrB+CjjKWJUDkJU3pQQQzdWgqGZ3j/X85y1ong8jkvw7Z64TfcTuNTPlBvzUYmx7HklVNekcKZw+QKVGkg==",
+  "dgSpecHash": "x2uhY6wP9M/y6pSdB6Use8epPndxdI8LAFbr/v4cFAi1UMIDuzpr1AY38DmMGvMhQcg+wgpniWmT4F8eiximfQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\obaads\\Documents\\Intervjuer ect\\Presentasjoner\\Wolftech\\Wolftech_departments\\Wolftech_departments\\WolftechApi.csproj",
+  "projectFilePath": "C:\\Users\\obaads\\Documents\\Intervjuer ect\\Presentasjoner\\Wolftech\\WolftechApi\\Wolftech_departments\\WolftechApi.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\obaads\\.nuget\\packages\\csvhelper\\15.0.5\\csvhelper.15.0.5.nupkg.sha512",
     "C:\\Users\\obaads\\.nuget\\packages\\microsoft.aspnetcore.html.abstractions\\2.2.0\\microsoft.aspnetcore.html.abstractions.2.2.0.nupkg.sha512",

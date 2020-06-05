@@ -6,6 +6,7 @@ using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
+using WolftechApi.ExeptionClasses;
 using WolftechApi.Models;
 
 namespace WolftechApi.Data
@@ -14,39 +15,57 @@ namespace WolftechApi.Data
     {
         private List<LoadingClass> inputList { get; set; }
         private List<int> parentIds { get; set; }
-        private readonly ILogger _logger;
         private CsvReader csvReader { get; set; }
         private StreamReader reader { get; set; }
         public List<Department> outputList { get; set; }
 
 
-        public DataLoading(string pathToDataFile, ILogger logger)
+        public DataLoading(string path)
         {
-            _logger = logger;
+            LoadMyData(path); //Loading data 
+
+            ParseMyData(reader); //Parsing loaded data to LoadingClass
+            MakeListOfParents(); //Creating a list of OIDs that are registered as parents
+            outputList = CreateDepartmentList(); //Creating the required return structure
+        }
+
+        public DataLoading(List<LoadingClass> testData) //constructor for testing methods
+        {
+            inputList = testData;
+            MakeListOfParents(); //Creating a list of OIDs that are registered as parents       
+            outputList = CreateDepartmentList(); //Creating the required return structure    
+        }
+
+        public void LoadMyData(string path)
+        {
             try
             {
-                reader = new StreamReader(pathToDataFile);
+                reader = new StreamReader(path);
             }
-            catch(IOException e)
+            catch (Exception e)
             {
-                _logger.LogError($"\nERROR! Reading data from {pathToDataFile} failed with the following error message:\n {e.Message}");
-                throw (new IOException("Loading data from disk using SteamReader failed"));
+                throw (new LoadingError($"Loading data from disk using StreamReader failed with the following message:\n {e.Message}"));
             }
 
+        }
+
+        public void ParseMyData(StreamReader inputReader)
+        {
             try
             {
-                csvReader = new CsvReader(reader, CultureInfo.InvariantCulture);
+                csvReader = new CsvReader(inputReader, CultureInfo.InvariantCulture);
 
                 IEnumerable<LoadingClass> dpts = csvReader.GetRecords<LoadingClass>();
                 inputList = dpts.ToList();
             }
             catch (Exception e)
             {
-                _logger.LogError($"\nERROR! Parsing data from disk failed with the following error message:\n {e.Message}");
-                throw (new Exception("Parsing data to List of LoadingClass failed"));
+                throw (new ParsingError($"Parsing data to List of LoadingClass failed with the following message:\n {e.Message}"));
             }
+        }
 
-
+        public List<int> MakeListOfParents()
+        {
             parentIds = new List<int>();
             int insertValue;
             // Creating a list of parent IDs for processing methods
@@ -59,17 +78,9 @@ namespace WolftechApi.Data
                 }
             }
 
-            try
-            {
-                outputList = CreateDepartmentList();
-            }
-            catch (Exception e)
-            {
-                _logger.LogError($"Paring data to correct structure failed with the following error message: {e.Message}");
-                throw (e);
-            }
+            return parentIds;
         }
-        private List<Department> CreateDepartmentList()
+        public List<Department> CreateDepartmentList()
         {
             List<Department> result = new List<Department>();
             int counter = 0;
@@ -96,7 +107,7 @@ namespace WolftechApi.Data
             }
 
 
-            List<Department> decendantsOfChild;
+            List<Department> decendantsOfChild; //Initialiszing list of potential children
 
 
             if (parentIds.Contains(parent.OID))
@@ -104,7 +115,7 @@ namespace WolftechApi.Data
                 int errParam = 0; //Parameter avoiding infinite loop
                 foreach (LoadingClass dept in inputList)
                 {
-                    if (dept.DepartmentParent_OID == parent.OID)
+                    if (dept.DepartmentParent_OID == parent.OID) //if current department examined is a child of 'parent' object
                     {
                         decendantsOfChild = new List<Department>();
                         decendantsOfChild = CreateInternalDepartmentList(dept, decendantsOfChild, errParam);
