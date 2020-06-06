@@ -4,7 +4,7 @@ This is a RESTful API built using ASP .NET Core.
 ### Functionality
 Upon a requst it is performing the following task:
 
-1.  **Read file from disk** 
+1.  **Read file from disk** <br/>
   The API is impemented expecting a .csv file-format. The file contains comma separated values with information about a company's departments and child departments in the following format:
   ```
   OID,Title,Color,DepartmentParent_OID
@@ -19,7 +19,7 @@ Upon a requst it is performing the following task:
   9,Asia,#EB5F25,6
   10,Europe,#EB5F25,6
   ```
-2.  **Parse data**
+2.  **Parse data**<br/>
   The response data from the API is a JSON containing the department hierarchy structure.The response supports any depth in the hierarchy.  For each node it also gives a count of the descendants. This number includes not only the number of children, but the number of children, the childrens children and so on.<br/>
   Format should be like the following for the preceding dataset:
   ```
@@ -98,7 +98,7 @@ Upon a requst it is performing the following task:
     }
   ]
   ```
-3. **Response**
+3. **Response**<br/>
   The response data is a JSON in the preceding format. If the data loading or parsing fails a BadRequest response is given with an error message.
 
 ### Test
